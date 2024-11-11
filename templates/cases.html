@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
@@ -43,7 +44,7 @@
             {% for case in cases %}
             <div class="card cases__card" data-aos="fade-down" data-aos-duration="1000">
                 <div class="cases__card-img">
-                    <a href="{% url 'single_cases' %}">
+                    <a href="{{ case.get_absolute_url }}">
                         <img class="img-fluid w-100" src="{{ case.image.url }}" alt="{{ case.title }}">
                     </a>
                     <h4 class="cases__card-tag">{{ case.category }}</h4>
@@ -56,7 +57,7 @@
                         </span>
                     </div>
                     <div class="">
-                        <a href="{% url 'single_cases' %}" class="cases__card-title">{{ case.title }}</a>
+                        <a href="{{ case.get_absolute_url }}" class="cases__card-title">{{ case.title }}</a>
                     </div>
                     <div class="cases__card-range">
                         <p class="global__desc m-0">Founded: {{ case.progress_percentage|floatformat:2 }}%</p>
@@ -69,12 +70,12 @@
                             <div class="d-flex align-items-center cases__card-range--bottom---m gap-2">
                                 <img class="cases__card-range--dollar" src="{% static 'img/box.svg' %}" alt="icon">
                                 <span class="cases__card-range--price">
-                                    Raised: ${{ case.raised_amount }}
+                                    Raised: ₦{{ case.raised_amount|intcomma }}
                                 </span>
                             </div>
                             <div class="d-flex align-items-center gap-2">
                                 <img class="cases__card-range--dollar" src="{% static 'img/dollar-s.svg' %}" alt="icon">
-                                <span class="cases__card-range--price">Goal: ${{ case.goal_amount }}</span>
+                                <span class="cases__card-range--price">Goal: ₦{{ case.goal_amount|intcomma }}</span>
                             </div>
                         </div>
                     </div>

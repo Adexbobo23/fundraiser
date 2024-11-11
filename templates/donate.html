@@ -540,7 +540,7 @@
                 {% if case %}
                 <div class="card cases__card m-0">
                     <div class="cases__card-img">
-                        <a href="{% url 'single_cases'  %}">
+                        <a href="{{ case.get_absolute_url }}">
                             <img class="img-fluid w-100" src="{{ case.image.url }}" alt="image">
                         </a>
                         <h4 class="cases__card-tag">{{ case.category }}</h4>
@@ -553,7 +553,7 @@
                             </span>
                         </div>
                         <div class="">
-                            <a href="{% url 'single_cases'  %}" class="cases__card-title">{{ case.title }}</a>
+                            <a href="{{ case.get_absolute_url }}" class="cases__card-title">{{ case.title }}</a>
                         </div>
                         <div class="cases__card-range">
                             <p class="global__desc m-0">Founded: {{ case.progress_percentage|floatformat:2 }}%</p>

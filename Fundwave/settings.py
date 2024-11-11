@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'core',
-    'userauths'
+    'userauths',
     
 ]
 
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.mysql',
         'USER': 'root',
-        'PASSWORD': 'psalmdaramola',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
         
