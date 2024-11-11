@@ -53,114 +53,114 @@ $(document).ready(function () {
 /* ---------------------------> 
   Form Validation
 <--------------------------- */
-$(document).ready(function () {
-  $("form").submit(function (e) {
-    e.preventDefault();
-  });
+// $(document).ready(function () {
+//   $("form").submit(function (e) {
+//     e.preventDefault();
+//   });
 
-  const validateInput = (input, validErr, validErrReq, regex) => {
-    const str = input.val();
+//   const validateInput = (input, validErr, validErrReq, regex) => {
+//     const str = input.val();
 
-    if (regex.test(str)) {
-      validErr.removeClass("sign__text-show");
-      validErrReq.removeClass("sign__text-show");
-    } else if (str === "") {
-      validErrReq.addClass("sign__text-show");
-      validErr.removeClass("sign__text-show");
-    } else {
-      validErr.addClass("sign__text-show");
-      validErrReq.removeClass("sign__text-show");
-    }
-  };
+//     if (regex.test(str)) {
+//       validErr.removeClass("sign__text-show");
+//       validErrReq.removeClass("sign__text-show");
+//     } else if (str === "") {
+//       validErrReq.addClass("sign__text-show");
+//       validErr.removeClass("sign__text-show");
+//     } else {
+//       validErr.addClass("sign__text-show");
+//       validErrReq.removeClass("sign__text-show");
+//     }
+//   };
 
-  //---> For name
-  $("#nameInp").blur(function () {
-    const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
-    validateInput(
-      $(this),
-      $(".sign__text-name"),
-      $(".sign__text-name--required"),
-      regx
-    );
-  });
-  
-  //---> For Last-Name
-  $("#lastname").blur(function () {
-    const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
-    validateInput(
-      $(this),
-      $(".sign__text-nam"),
-      $(".sign__text-lastname--required"),
-      regx
-    );
-  });
+//   //---> For name
+//   $("#nameInp").blur(function () {
+//     const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-name"),
+//       $(".sign__text-name--required"),
+//       regx
+//     );
+//   });
 
-  //---> For Email
-  $("#emailInp").blur(function () {
-    const regx = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
-    validateInput(
-      $(this),
-      $(".sign__text-email"),
-      $(".sign__text-email--required"),
-      regx
-    );
-  });
+//   //---> For Last-Name
+//   $("#lastname").blur(function () {
+//     const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-nam"),
+//       $(".sign__text-lastname--required"),
+//       regx
+//     );
+//   });
 
-  //---> For Password
-  $("#passwordInp").blur(function () {
-    const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,5}$/;
-    validateInput(
-      $(this),
-      $(".sign__text-pass"),
-      $(".sign__text-pass--required"),
-      regx
-    );
-  });
+//   //---> For Email
+//   $("#emailInp").blur(function () {
+//     const regx = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-email"),
+//       $(".sign__text-email--required"),
+//       regx
+//     );
+//   });
 
-  //---> For Phone-Number
-  $("#phnInp").blur(function () {
-    const regx = /^0\d{10}$/;
-    validateInput(
-      $(this),
-      $(".sign__text-phn"),
-      $(".sign__text-phn--required"),
-      regx
-    );
-  });
+//   // //---> For Password
+//   // $("#passwordInp").blur(function () {
+//   //   const regx = /^[a-zA-Z]([0-9a-zA-Z]){2,5}$/;
+//   //   validateInput(
+//   //     $(this),
+//   //     $(".sign__text-pass"),
+//   //     $(".sign__text-pass--required"),
+//   //     regx
+//   //   );
+//   // });
 
-  //---> For Date_of_Birth
-  $("#date").blur(function () {
-    const regx = /[\s\S]/;
-    validateInput(
-      $(this),
-      $(".sign__text-ph"),
-      $(".sign__text-date--required"),
-      regx
-    );
-  });
+//   //---> For Phone-Number
+//   $("#phnInp").blur(function () {
+//     const regx = /^0\d{10}$/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-phn"),
+//       $(".sign__text-phn--required"),
+//       regx
+//     );
+//   });
 
-  //---> For Occupation
-  $("#occupation").blur(function () {
-    const regx = /[\s\S]/;
-    validateInput(
-      $(this),
-      $(".sign__text-ph"),
-      $(".sign__text-occu--required"),
-      regx
-    );
-  });
+//   //---> For Date_of_Birth
+//   $("#date").blur(function () {
+//     const regx = /[\s\S]/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-ph"),
+//       $(".sign__text-date--required"),
+//       regx
+//     );
+//   });
 
-  //---> For Message
-  $("#comment").blur(function () {
-    const regx = /[\s\S]/;
-    validateInput(
-      $(this),
-      $(".sign__text-ph"),
-      $(".sign__text-msg--required"),
-      regx
-    );
-  });
-});
+//   //---> For Occupation
+//   $("#occupation").blur(function () {
+//     const regx = /[\s\S]/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-ph"),
+//       $(".sign__text-occu--required"),
+//       regx
+//     );
+//   });
+
+//   //---> For Message
+//   $("#comment").blur(function () {
+//     const regx = /[\s\S]/;
+//     validateInput(
+//       $(this),
+//       $(".sign__text-ph"),
+//       $(".sign__text-msg--required"),
+//       regx
+//     );
+//   });
+// });
 
 /* ---------------------------> 
    Sign_Slider
