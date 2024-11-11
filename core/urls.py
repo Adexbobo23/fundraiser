@@ -17,7 +17,6 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('volunteer/', views.volunteer, name='volunteer'),
     path('error/', views.error, name='error'),
-    
 ]
 
 
