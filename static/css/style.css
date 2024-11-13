@@ -59,6 +59,16 @@
   --bs-body-bg:#fff;
 }
 
+.bg-gradient-green {
+  background: linear-gradient(180deg, #28a745 10%, #218838 100%);
+  background-size: cover;
+}
+.bg-gradient-teal {
+  background: linear-gradient(180deg, #20c997 10%, #2dce89 100%);
+  background-size: cover;
+}
+
+
 *, ::after, ::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
