@@ -128,6 +128,9 @@ def volunteer(request):
 
 def error(request):
     return render(request, 'error.html')
+
+def campaign(request):
+    return render(request, 'campaign.html')
  
 def beneficiary_dashboard(request):
     cases = Case.objects.filter(beneficiary=request.user)

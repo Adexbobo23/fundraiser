@@ -20,6 +20,7 @@ urlpatterns = [
     path('volunteer/', views.volunteer, name='volunteer'),
     path('error/', views.error, name='error'),
     path('beneficiary-dashboard/', views.beneficiary_dashboard, name='beneficiary-dashboard'),
+    path('campaign/',views.campaign,name='campaign'),
 
     
 ]

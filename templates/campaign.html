@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Contact Form Section -->
+        <div class="col-md-6 px-5">
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" id="title" type="text" placeholder="Title" data-sb-validations="required" />
+                    <div class="invalid-feedback" data-sb-feedback="title:required">Title is required.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category">Category</label>
+                    <input class="form-control" id="category" type="text" placeholder="Category" data-sb-validations="required" />
+                    <div class="invalid-feedback" data-sb-feedback="category:required">Category is required.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" id="location" type="text" placeholder="Location" data-sb-validations="required" />
+                    <div class="invalid-feedback" data-sb-feedback="location:required">Location is required.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="amountNeeded">Amount Needed</label>
+                    <input class="form-control" id="amountNeeded" type="text" placeholder="Amount Needed" data-sb-validations="required" />
+                    <div class="invalid-feedback" data-sb-feedback="amountNeeded:required">Amount Needed is required.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="fundingType">Funding Type</label>
+                    <select class="form-select" id="fundingType" aria-label="Funding Type">
+                        <option value="All or Nothing">All or Nothing</option>
+                        <option value="Keep What You raise">Keep What You raise</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" id="description" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
+                    <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Join Section -->
+        <div class="col-md-6">
+            <div class="join">
+                <div class="card join__card">
+                    <img src="{% static 'img/BG-Element.png' %}" class="img-fluid join__card-img" alt="image">
+                    <div class="card-img-overlay join__card-layer">
+                        <div class="col-11 col-md-7">
+                            <h3 class="join__text global__text">Become a volunteer</h3>
+                            <h2 class="join__heading global__heading">Join Your hand with us for a better life and future</h2>
+                            <button class="join__card-layer--btn global__btn">Discover More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+{% endblock %}
