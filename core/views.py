@@ -5,6 +5,9 @@ from .forms import DonationForm
 from django.db import transaction
 from decimal import Decimal
 from django.http import JsonResponse
+from django.db.models import Sum, Count, F
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -25,7 +28,7 @@ def contact(request):
 
 def donate(request):
     try:
-        case = Case.objects.get(pk=1)  # Replace with an actual primary key that exists
+        case = Case.objects.get(pk=1)  
     except Case.DoesNotExist:
         case = None
     return render(request, 'donate.html', {'case': case})
@@ -130,24 +133,58 @@ def error(request):
     return render(request, 'error.html')
 
 def campaign(request):
+    if request.method == 'POST':
+        # Retrieve data from the form
+        title = request.POST.get('title')
+        category = request.POST.get('category')
+        location = request.POST.get('location')
+        goal_amount = request.POST.get('goal_amount')
+        funding_type = request.POST.get('funding_type')
+        description = request.POST.get('description')
+        image = request.FILES.get('image')  # Handle the uploaded image
+
+        # Create and save the new case
+        case = Case(
+            title=title,
+            category=category,
+            location=location,
+            goal_amount=goal_amount,
+            funding_type=funding_type,
+            description=description,
+            campaign_creator=request.user.userprofile,  # Assuming the user is the campaign creator
+            image=image  # Assign the uploaded image
+        )
+        case.save()
+
+        # Redirect to a success page or dashboard
+        return redirect('cases')  # Change this to the appropriate URL name
+
+
     return render(request, 'campaign.html')
  
-def beneficiary_dashboard(request):
-    cases = Case.objects.filter(beneficiary=request.user)
 
-    # Collect data for chart
-    chart_data = {
-        "labels": [case.title for case in cases],
-        "progress": [case.progress_percentage for case in cases],
+def beneficiary_dashboard(request):
+    user_cases = Case.objects.filter(campaign_creator=request.user.userprofile)
+
+    total_raised = user_cases.aggregate(Sum('raised_amount'))['raised_amount__sum'] or 0
+    total_goal = user_cases.aggregate(Sum('goal_amount'))['goal_amount__sum'] or 0
+    active_cases = user_cases.filter(status="active").count()
+    progress_percentage = (total_raised / total_goal) * 100 if total_goal > 0 else 0
+    donors_count = (
+        Donation.objects.filter(case__in=user_cases)
+        .values('email')
+        .distinct()
+        .count()
+    ) 
+    
+    # Pass data to the template
+    context = {
+        'raised_amount': total_raised,
+        'goal_amount': total_goal,
+        'progress_percentage': round(progress_percentage, 2),
+        'active_donors_count': donors_count,
+        'cases': user_cases,
     }
 
-    return render(request, 'beneficiary-dashboard.html',{"chart_data": chart_data}) 
-
-
-
-
-
-
-
-
+    return render(request, 'beneficiary-dashboard.html', context) 
 

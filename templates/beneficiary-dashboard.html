@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>FundWave</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -21,6 +22,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.min.css" integrity="sha512-Mk4n0eeNdGiUHlWvZRybiowkcu+Fo2t4XwsJyyDghASMeFGH6yUXcdDI3CKq12an5J8fq4EFzRVRdbjerO3RmQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+    
 
 </head>
 
@@ -33,11 +39,11 @@
         <ul class="navbar-nav bg-gradient-teal sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}    ">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-home"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">FundWave <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -45,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{% url 'beneficiary-dashboard' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -55,7 +61,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Pages
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -63,35 +69,18 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Pages</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>About Us</span></a>
+                </li>
+    
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
+           
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -102,39 +91,9 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
+           
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+           
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -144,12 +103,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="{% static 'img/undraw_rocket.svg' %}" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+           
 
         </ul>
         <!-- End of Sidebar -->
@@ -242,7 +196,7 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
+                                        ₦290.29 has been deposited into your account!
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -370,9 +324,30 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        
+                        <!-- Dropdown Button -->
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-primary shadow-sm dropdown-toggle" type="button" id="paymentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-download fa-sm text-white-50"></i> Payment Details
+                            </button>
+                            
+                            <!-- Dropdown Form -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow" aria-labelledby="paymentDropdown">
+                                <form id="paymentDetailsForm">
+                                    <div class="form-group">
+                                        <label for="accountNumber">Account Number</label>
+                                        <input type="text" class="form-control" id="accountNumber" name="account_number" placeholder="Enter account number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="accountName">Account Name</label>
+                                        <input type="text" class="form-control" id="accountName" name="account_name" placeholder="Enter account name" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -384,10 +359,10 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Funds Raised</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{ raised_amount }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₦{{ raised_amount|intcomma }}</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <i class="fas fa-naira-sign fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -401,7 +376,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Goal Amount</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{ goal_amount }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₦{{ goal_amount|intcomma }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-bullseye fa-2x text-gray-300"></i>
@@ -478,18 +453,18 @@
                                         <canvas id="myAreaChart"></canvas>
                                     </div>
                                     <div class="mt-3">
-                                        <p class="mb-0"><strong>Goal Amount:</strong> $<span id="goalAmount">50000</span></p>
-                                        <p><strong>Raised Amount:</strong> $<span id="raisedAmount">30000</span> (60%)</p>
+                                        <p class="mb-0"><strong>Goal Amount:</strong> ₦<span id="goalAmount">{{ goal_amount|intcomma }}</span></p>
+                                        <p><strong>Raised Amount:</strong> ₦<span id="raisedAmount">{{ raised_amount|intcomma }}</span> (60%)</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
+                        <!-- <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4"> -->
                                 <!-- Card Header - Dropdown -->
-                                <div
+                                <!-- <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                     <div class="dropdown no-arrow">
@@ -506,9 +481,9 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Card Body -->
-                                <div class="card-body">
+                                <!-- <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
@@ -526,15 +501,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- Content Row -->
-                    <div class="row">
+                    
+                     <div class="row"> 
 
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        
+                        <!-- <div class="col-lg-6 mb-4">
 
-                            <!-- Project Card Example -->
+                            
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
@@ -573,7 +548,7 @@
                                 </div>
                             </div>
 
-                            <!-- Color System -->
+                            
                             <div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
@@ -641,11 +616,11 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+                            
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
@@ -664,7 +639,7 @@
                                 </div>
                             </div>
 
-                            <!-- Approach -->
+                            
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -679,7 +654,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> 
 
                 </div>
                 <!-- /.container-fluid -->
@@ -727,42 +702,50 @@
             </div>
         </div>
     </div>
-    <script>var chartData = {{ chart_data|safe }};</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-         
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var ctx = document.getElementById("myAreaChart").getContext("2d");
-            
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: chartData.labels,
-                    datasets: [{
-                        label: 'Fundraising Progress (%)',
-                        data: chartData.progress,
-                        backgroundColor: 'rgba(78, 115, 223, 0.05)',
-                        borderColor: 'rgba(78, 115, 223, 1)',
-                        borderWidth: 2,
-                        fill: true,
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    }
+        // Area Chart
+        const areaCtx = document.getElementById('myAreaChart').getContext('2d');
+        const myAreaChart = new Chart(areaCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'], // Example labels
+                datasets: [{
+                    label: 'Raised Amount',
+                    data: [1000, 3000, 5000, 2000, 7000], // Replace with dynamic data
+                    backgroundColor: 'rgba(78, 115, 223, 0.05)',
+                    borderColor: 'rgba(78, 115, 223, 1)',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { beginAtZero: true }
                 }
-            });
+            }
+        });
+    
+        // Donut Chart
+        const pieCtx = document.getElementById('myPieChart').getContext('2d');
+        const myPieChart = new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Direct', 'Social', 'Referral'],
+                datasets: [{
+                    data: [55, 30, 15], // Example static data
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '75%',
+            }
         });
     </script>
 
