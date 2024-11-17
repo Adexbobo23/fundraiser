@@ -21,6 +21,7 @@ urlpatterns = [
     path('error/', views.error, name='error'),
     path('beneficiary-dashboard/', views.beneficiary_dashboard, name='beneficiary-dashboard'),
     path('campaign/',views.campaign,name='campaign'),
+    path('make-payment/', views.payment_page, name='payment'),
 
     
 ]

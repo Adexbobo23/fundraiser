@@ -12,6 +12,56 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+import json
+import urllib.parse
+from django.conf import settings
+
+
+def payment_page(request):
+    if request.method == "POST":
+        # Retrieve form data
+        merchant_key = settings.PAYAZA_API_KEY
+        connection_mode = request.POST.get("connection_mode")
+        checkout_amount = request.POST.get("checkout_amount")
+        currency_code = request.POST.get("currency_code", "NGN")
+        email_address = request.POST.get("email_address")
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        phone_number = request.POST.get("phone_number")
+        transaction_reference = request.POST.get("transaction_reference")
+        redirect_url = "https://jexceltech.com"  # Your redirect URL
+
+        # Optional custom details
+        additional_details = {
+            "pnr": request.POST.get("pnr"),
+            "ticket_number": request.POST.get("ticket_number"),
+        }
+        encoded_additional_details = json.dumps(additional_details)
+
+        # Build the Payment URL
+        base_url = "https://business.payaza.africa/payment-page/"
+        query_params = {
+            "merchant_key": merchant_key,
+            "connection_mode": connection_mode,
+            "checkout_amount": checkout_amount,
+            "currency_code": currency_code,
+            "email_address": email_address,
+            "first_name": first_name,
+            "last_name": last_name,
+            "phone_number": phone_number,
+            "transaction_reference": transaction_reference,
+            "additional_details": encoded_additional_details,
+            "redirect_url": redirect_url,
+        }
+        payment_url = f"{base_url}?{urllib.parse.urlencode(query_params)}"
+
+        # Redirect to the Payment Page
+        return redirect(payment_url)
+
+    return render(request, "payment_form.html")
+
 
 def home(request):
     cases = Case.objects.all()
