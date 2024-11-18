@@ -13,7 +13,7 @@ def signin(request):
         login(request, user)
         return redirect('home')
       else: 
-        return render(request, 'sign-in', {'error': 'Invalid credentials.'})
+        return render(request, 'signin.html', {'error': 'Invalid credentials.'})
     else: 
       return render(request, 'signin.html', {})
 
