@@ -45,7 +45,11 @@
     >
       <div class="container p-sm-0">
         <a class="navbar-brand menu__logo p-0 m-0" href="{% url 'home' %}"
-          ><span style="color: green; font-size: 30px;">FundWave</span></a>
+          ><img
+            class="menu__logo-img"
+            src="{% static 'img/Logo.png' %}"
+            alt="logo"
+        /></a>
         <button
           class="navbar-toggler menu__toggle"
           type="button"
@@ -144,9 +148,12 @@
             <div class="container p-sm-0">
                 <div class="row justify-content-between">
                     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <a href="{% url 'home' %}" style="text-decoration: none;">
-                            <span style="color: green; font-size: 30px;">FundWave</span>
-                        </a>
+                        <a class="navbar-brand menu__logo p-0 m-0" href="{% url 'home' %}">
+                          <img
+                            class="menu__logo-img"
+                            src="{% static 'img/Logo.png' %}"
+                            alt="logo"/></a>
+                            
                         <p class="global__desc footer__desc"> Fundwave provides a comprehensive platform designed to streamline the management of various types of funds, including venture capital, private equity, and real estate funds.</p>
                         <div class="footer__social">
                             <ul class="footer__social-ul">

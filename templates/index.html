@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="cases__slider">
                     {% for case in cases %}
-                    <div class="card cases__card">
+                    <div class="card cases__card" data-aos="fade-down" data-aos-duration="800">
                         <div class="cases__card-img">
                             <a href="{% url 'home'  %}">
                                 <img class="img-fluid w-100" src="{{ case.image.url }}" alt="image">
