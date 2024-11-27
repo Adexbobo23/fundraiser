@@ -112,3 +112,14 @@ class SignUpForm(forms.Form):
             )
             return user
         return None
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['phone_number', 'country', 'state', 'profile_description', 'avatar']
+        widgets = {
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}),
+            'country': forms.Select(attrs={'class': 'form-control', 'id': 'country'}),  # Set ID to 'country'
+            'profile_description': forms.Textarea(attrs={'class': 'form-control', 'rows': 8}),
+            'avatar': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+                 }    

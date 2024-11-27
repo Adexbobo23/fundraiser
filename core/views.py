@@ -63,6 +63,8 @@ def payment_page(request):
     return render(request, "payment_form.html")
 
 
+
+
 def home(request):
     cases = Case.objects.all()
     return render(request, 'index.html', {'cases': cases})
@@ -182,6 +184,7 @@ def volunteer(request):
 def error(request):
     return render(request, 'error.html')
 
+@login_required
 def campaign(request):
     if request.method == 'POST':
         # Retrieve data from the form
@@ -212,7 +215,7 @@ def campaign(request):
 
     return render(request, 'campaign.html')
  
-
+@login_required
 def beneficiary_dashboard(request):
     user_cases = Case.objects.filter(campaign_creator=request.user.userprofile)
 

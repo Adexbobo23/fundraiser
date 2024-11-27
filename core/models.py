@@ -20,6 +20,7 @@ class Case(models.Model):
     raised_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     goal_amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, choices=[('active', 'Active'), ('completed', 'Completed'), ('paused', 'Paused')], default='active')
+    verified = models.BooleanField(default=False)  
     
     campaign_creator = models.ForeignKey(
         UserProfile,

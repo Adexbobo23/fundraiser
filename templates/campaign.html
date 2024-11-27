@@ -4,10 +4,100 @@
 
 {% block content %}
 
-<div class="container my-5">
+<link rel="stylesheet" href="{% static 'css/campaign.css' %}" />
+<div class="" style="background-color: #f5f5ff;">
+    <div class="container my-5">
+        <section class="price_plan_area section_padding_130_80" id="pricing">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <!-- Section Heading-->
+                        <div class="section-heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <h6>Promotion Plans</h6>
+                            <h3>Maximize Your Campaign's Reach</h3>
+                            <p>Boost your campaign's visibility with our tailored promotional plans designed to help you succeed.</p>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <!-- Basic Plan -->
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                        <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <div class="title">
+                                <h3>Starter</h3>
+                                <p>Kickstart Your Promotion</p>
+                                <div class="line"></div>
+                            </div>
+                            <div class="price">
+                                <h4>₦12,500</h4>
+                            </div>
+                            <div class="description">
+                                <p><i class="lni lni-checkmark-circle"></i>Duration: 7 days</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Social Media Ads (Facebook, Instagram)</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Email Campaign Assistance</p>
+                                <p><i class="lni lni-close"></i>No Video Ads</p>
+                                <p><i class="lni lni-close"></i>Limited Analytics</p>
+                            </div>
+                            <div class="button"><a class="btn btn-success btn-2" href="#">Get Started</a></div>
+                        </div>
+                    </div>
+                    <!-- Advanced Plan -->
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                        <div class="single_price_plan active wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <!-- Side Shape-->
+                            <div class="side-shape"><img src="https://bootdey.com/img/popular-pricing.png" alt=""></div>
+                            <div class="title"><span>Popular</span>
+                                <h3>Advanced</h3>
+                                <p>For Growing Campaigns</p>
+                                <div class="line"></div>
+                            </div>
+                            <div class="price">
+                                <h4>₦22,500</h4>
+                            </div>
+                            <div class="description">
+                                <p><i class="lni lni-checkmark-circle"></i>Duration: 1 Month</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Google Ads Integration</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Social Media Ads (Facebook, Instagram, LinkedIn)</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Content Marketing Support</p>
+                                <p><i class="lni lni-close"></i>Limited Video Ads</p>
+                            </div>
+                            <div class="button"><a class="btn btn-warning" href="#">Get Started</a></div>
+                        </div>
+                    </div>
+                    <!-- Premium Plan -->
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                        <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <div class="title">
+                                <h3>Premium</h3>
+                                <p>Comprehensive Campaign Visibility</p>
+                                <div class="line"></div>
+                            </div>
+                            <div class="price">
+                                <h4>₦34,600</h4>
+                            </div>
+                            <div class="description">
+                                <p><i class="lni lni-checkmark-circle"></i>Duration: 3 Months</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Google Ads Integration</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Social Media Ads (All Major Platforms)</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Video Ads Creation and Management</p>
+                                <p><i class="lni lni-checkmark-circle"></i>Comprehensive Analytics</p>
+                            </div>
+                            <div class="button"><a class="btn btn-info" href="#">Get Started</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     <div class="row">
         <!-- Contact Form Section -->
-        <div class="col-md-6 px-5">
+        <div class="section-heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+            <h3>Or Continue for Free</h3>
+            
+            <div class="line" style="padding: 0px 170px;"></div>
+        </div>
+        <div class="col-md-6 px-5" style="margin-left: 2rem;">
             <form id="createCaseForm" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -56,21 +146,13 @@
 
         <!-- Join Section -->
         <div class="col-md-6">
-            <div class="join">
-                <div class="card join__card">
-                    <img src="{% static 'img/BG-Element.png' %}" class="img-fluid join__card-img" alt="image">
-                    <div class="card-img-overlay join__card-layer">
-                        <div class="col-11 col-md-7">
-                            <h3 class="join__text global__text">Become a volunteer</h3>
-                            <h2 class="join__heading global__heading">Join Your hand with us for a better life and future</h2>
-                            <button class="join__card-layer--btn global__btn">Discover More</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css"> 
+   
         </div>
     </div>
 </div>
+</div>
+
 
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 

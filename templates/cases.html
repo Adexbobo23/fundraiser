@@ -66,6 +66,14 @@
                                  style="width: {{ case.progress_percentage }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
+                        {% if case.verified %}
+                        
+                        <span class="price"><img width="20" height="20" src="{% static 'img/icons8-verified-50.png' %}" alt="verified-account"/> verified</span>
+                        {% else %}
+                        <span class="badge bg-warning">Unverified</span>    
+                        
+                        
+                        {% endif %}
                         <div class="cases__card-range--bottom">
                             <div class="d-flex align-items-center cases__card-range--bottom---m gap-2">
                                 <img class="cases__card-range--dollar" src="{% static 'img/box.svg' %}" alt="icon">
