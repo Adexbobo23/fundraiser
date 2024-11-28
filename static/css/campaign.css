@@ -187,3 +187,24 @@
 .shadow-none {
     box-shadow: none!important;
 }
+
+.profile-menu {
+    cursor: pointer;
+}
+
+.edit-profile-menu {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.profile-menu:hover .edit-profile-menu {
+    display: block;
+}

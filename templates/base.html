@@ -32,6 +32,7 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/campaign.css' %}" />
     
   </head>
 
@@ -114,13 +115,24 @@
                     </li>
                 </ul>
                 {% if user.is_authenticated %}
-                <div class="d-sm-flex d-lg-block gap-4 mt-3 mt-lg-0">
+                
+                </div>
+                <div class="profile-menu d-flex align-items-center position-relative">
+                    <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                    <span class="fw">{{ user.first_name}}</span>
+                    <div class="edit-profile-menu position-absolute">
+                        <a class="dropdown-item" href="{% url 'profile' %}">Edit Profile</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+                
+                <!-- <div class="d-sm-flex d-lg-block gap-4 mt-3 mt-lg-0">
                   <a
                     href="{% url 'logout' %}"
                     class="btn menu__btn menu__btn-in mb-3 mb-lg-0"
                     >log out</a
-                  >
-                </div>
+                  > -->
+
                 {% else %}
                 <div class="d-sm-flex d-lg-block gap-4 mt-3 mt-lg-0">
                   <a
@@ -152,7 +164,7 @@
                         <a class="navbar-brand menu__logo p-0 m-0" href="{% url 'home' %}">
                           <img
                             class="menu__logo-img"
-                            src="{% static 'img/Logo.png' %}"
+                            src="{% static 'img/logo-footer.png' %}"
                             alt="logo"/></a>
                             
                         <p class="global__desc footer__desc"> Fundwave provides a comprehensive platform designed to streamline the management of various types of funds, including venture capital, private equity, and real estate funds.</p>
